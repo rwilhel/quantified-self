@@ -12,6 +12,7 @@ test.describe('Our test bundle', function() {
 
 test.describe('Testing Foods Page', function() {
 	var driver
+	var initialFoodCount
 	this.timeout(10000)
 
 	test.beforeEach(function () {
@@ -54,13 +55,14 @@ test.describe('Testing Foods Page', function() {
 			})
 	})
 
-	// test.it("can delete a food", function() {
-	// 	driver.get(`${frontEndLocation}`)
-	// 	driver.wait(until.elementLocated({css: '.food-name'}))
-	// 	driver.findElement({css: '.trash-can'}).click()
-	// 	driver.findElements({css: '.food-name'})
-	// 		.then(function(foods) {
-	// 			assert.lengthOf(foods, initialFoodCount)
-	// 		})
-	// })
+	test.it("can delete a food", function() {
+		driver.get(`${frontEndLocation}`)
+		driver.wait(until.elementLocated({css: '.trash-can'}))
+		driver.findElement({css: '.trash-can'}).click()
+		driver.sleep(1000)
+		driver.findElements({css: '.food-name'})
+			.then(function(foods) {
+				assert.lengthOf(foods, 11)
+			})
+	})
 })
