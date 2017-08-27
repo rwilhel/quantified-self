@@ -61,9 +61,21 @@ test.describe('Testing Foods Page', function() {
 		driver.findElements({css: '.food-name'})
 			.then(function(foods) {
 				initialFoodCount = foods.length
-				driver.findElement({css: 'input[name="food-name"]'}).sendKeys('200')
+				driver.findElement({css: 'input[name="food-calories"]'}).sendKeys('200')
 				driver.findElement({css: '.add-food-button'}).click()
 				driver.wait(until.elementLocated({css: '#name-input'}))
+			})
+	})
+
+	test.it("displays an error message when calories aren't entered", function() {
+		driver.get(`${frontEndLocation}`)
+		driver.wait(until.elementLocated({css: '.add-food-button'}))
+		driver.findElements({css: '.food-name'})
+			.then(function(foods) {
+				initialFoodCount = foods.length
+				driver.findElement({css: 'input[name="food-name"]'}).sendKeys('Chocolate')
+				driver.findElement({css: '.add-food-button'}).click()
+				driver.wait(until.elementLocated({css: '#calories-input'}))
 			})
 	})
 
