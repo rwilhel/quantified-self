@@ -180,6 +180,20 @@ form#new-foods {
   width: 50%
 }
 
+.search-container {
+  display: flex;
+  width: 100%
+}
+
+.search-container h4 {
+  width: 25%;
+}
+
+.search-input {
+  margin-bottom: 15px;
+  width: 50%
+}
+
 .manage-foods-header {
   margin-bottom: -10px;
   margin: auto;
