@@ -160,6 +160,7 @@ form#new-foods {
 .manage-btn {
   margin-top: 3%;
   margin-left: 12%;
+  margin-bottom: 3%;
   width: 75%;
   font-size: 2em;
   border: 2px solid #d8382c;
@@ -209,4 +210,9 @@ form#new-foods {
 
 #total-goal-calories, #total-consumed-calories, #total-remaining-calories {
   padding-left: 15%;
+}
+
+.add-selected-to {
+  margin: auto;
+  text-align: center;
 }

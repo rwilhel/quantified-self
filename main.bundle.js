@@ -10318,6 +10318,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);
+	var state;
 
 	function Food(food) {
 	  this.id = food.id;
@@ -10329,6 +10330,15 @@
 	  return `<tr class="food-row">` + `<td class="food-name" data-id="${this.id}" id="${this.id}" contenteditable="true">${this.name}</td>` + `<td class="food-calories" id="${this.id}" contenteditable="true">${this.calories}</td>` + eval(`this.${page}()`);
 	};
 
+<<<<<<< HEAD
+=======
+	// Food.prototype.toHTMLDiary = function(data) {
+	//   return `<tr class="food-row">` +
+	//   `<td class="food-name" data-id="${this.id}">${this.name}</td>`+
+	//   `<td class="food-calories">${this.calories}</td>`+
+	//   `<td><input class="checkbox" type="checkbox" id="checkbox ${this.id}"></td></tr>`
+
+>>>>>>> master
 	Food.prototype.index = function () {
 	  return `<td class="trash-can-space"><a><input type="image" src="public/trash-can.png" class="trash-can" id=${this.id} alt="a trash can"/></a></td></tr>`;
 	};
@@ -10420,6 +10430,26 @@
 	    }
 	  }
 	};
+
+	Food.sortCalories = function () {
+	  $('#foods-table tr').sort(function (a, b) {
+	    switch (order) {
+	      case 'asc':
+	        return Number($('td:nth-child(2)', a).text()) - Number($('td:nth-child(2)', b).text());
+	        break;
+	      case 'desc':
+	        return Number($('td:nth-child(2)', b).text()) - Number($('td:nth-child(2)', a).text());
+	        break;
+	      case 'original':
+	        return Number(b.id) - Number(a.id);
+	        break;
+	    }
+	  }).appendTo('#foods-table');
+	};
+
+	// Food.chooseSort = function() {
+	//   debugger
+	// }
 
 	module.exports = Food;
 
@@ -10701,6 +10731,11 @@
 	  var foodObj = { calories: calories, id: id };
 	  Food.editFood(foodObj);
 	});
+
+	$('.cals-header').on('click', function () {
+	  Food.sortCalories();
+	});
+	// $('.cals-header').on('click', Food.chooseSort(event))
 
 /***/ }),
 /* 5 */
