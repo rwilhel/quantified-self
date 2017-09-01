@@ -10465,7 +10465,6 @@
 
 	Meal.allMealsToHTML = function () {
 		return this.getAllMeals().then(function (mealList) {
-			debugger;
 			return mealList.map(function (meal) {
 				return new Meal(meal);
 			});
@@ -10493,7 +10492,7 @@
 					var mealName = 'dinner';
 					Meal.generateMealTable(meal, mealName, 800);
 					break;
-				case "Snack":
+				case "Snacks":
 					Meal.mealCaloriesRemaining($('#remaining-snacks-calories'), meal, 200);
 					var mealName = 'snacks';
 					Meal.generateMealTable(meal, mealName, 200);
@@ -10600,7 +10599,7 @@
 		}).done(function (data) {
 			return data;
 		}).fail(function (error) {
-			alert('Unable to post food to meal');
+			// alert('Unable to post food to meal')
 		});
 	};
 
@@ -10682,11 +10681,11 @@
 
 	  return $.ajax({
 	    type: "POST",
-	    url: 'https://shrouded-headland-61661.herokuapp.com/api/v1/foods',
+	    url: 'http://localhost:4000/api/v1/foods',
 	    data: { food: foodItem }
 	  }).done(function (data) {
 	    var newFood = new Food(data);
-	    $(newFood.toHTML()).prependTo('#foods-table');
+	    $(newFood.toHTML("index")).prependTo('#foods-table');
 	    $('#food-name').val("");
 	    $('#food-calories').val("");
 	    $('#name-input').hide();
@@ -10724,6 +10723,7 @@
 	  var id = this.id;
 	  var calories = $(this).text();
 	  var foodObj = { calories: calories, id: id };
+
 	  Food.editFood(foodObj);
 	});
 
@@ -10751,6 +10751,18 @@
 	  var mealTable = mealElement.id;
 	  Meal.updateCalories(mealTable);
 	});
+
+	$('#search-name').keyup(filterFoods);
+
+	function filterFoods() {
+	  let filter = $('#search-name').val().toLowerCase();
+	  let foods = $('.food-name');
+	  for (var i = 0; i < foods.length; i++) {
+	    let foodName = $(foods[i]).text();
+	    let matchedFilter = foodName.toLowerCase().indexOf(filter) > -1;
+	    foods[i].parentElement.style.display = matchedFilter ? "" : "none";
+	  }
+	}
 
 /***/ })
 /******/ ]);
