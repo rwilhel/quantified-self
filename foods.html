@@ -36,8 +36,14 @@
 
   <section>
     <div class="col-diary col-diary2">
-      <div class="tbl-header">
-        <table cellpadding="0" cellspacing="0" border="0" class="name-calories">
+      <div class="search-container">
+        <h4>FILTER BY NAME</h4>
+        <div class="search-input">
+          <input type="text" name="search-name" id="search-name", placeholder="TYPE NAME HERE" /><br />
+        </div>
+      </div>
+      <div class="tbl-header-index">
+        <table>
             <tr>
               <th>NAME</th>
               <th id="calories-sorter">CALORIES</th>
@@ -45,10 +51,8 @@
             </tr>
         </table>
       </div>
-      <div class="tbl-content">
-        <table class="foods-table" id="foods-table" cellpadding="0" cellspacing="0" border="0">
+        <table class="diary-foods-table" id="foods-table">
           <tbody></tbody>
-        </table>
       </div>
     </div>
   </section>
