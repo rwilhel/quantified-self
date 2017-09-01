@@ -10752,5 +10752,17 @@
 	  Meal.updateCalories(mealTable);
 	});
 
+	$('#search-name').keyup(filterFoods);
+
+	function filterFoods() {
+	  let filter = $('#search-name').val().toLowerCase();
+	  let foods = $('.food-name');
+	  for (var i = 0; i < foods.length; i++) {
+	    let foodName = $(foods[i]).text();
+	    let matchedFilter = foodName.toLowerCase().indexOf(filter) > -1;
+	    foods[i].parentElement.style.display = matchedFilter ? "" : "none";
+	  }
+	}
+
 /***/ })
 /******/ ]);
