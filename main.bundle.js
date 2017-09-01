@@ -10330,15 +10330,6 @@
 	  return `<tr class="food-row">` + `<td class="food-name" data-id="${this.id}" id="${this.id}" contenteditable="true">${this.name}</td>` + `<td class="food-calories" id="${this.id}" contenteditable="true">${this.calories}</td>` + eval(`this.${page}()`);
 	};
 
-<<<<<<< HEAD
-=======
-	// Food.prototype.toHTMLDiary = function(data) {
-	//   return `<tr class="food-row">` +
-	//   `<td class="food-name" data-id="${this.id}">${this.name}</td>`+
-	//   `<td class="food-calories">${this.calories}</td>`+
-	//   `<td><input class="checkbox" type="checkbox" id="checkbox ${this.id}"></td></tr>`
-
->>>>>>> master
 	Food.prototype.index = function () {
 	  return `<td class="trash-can-space"><a><input type="image" src="public/trash-can.png" class="trash-can" id=${this.id} alt="a trash can"/></a></td></tr>`;
 	};
@@ -10446,10 +10437,6 @@
 	    }
 	  }).appendTo('#foods-table');
 	};
-
-	// Food.chooseSort = function() {
-	//   debugger
-	// }
 
 	module.exports = Food;
 
@@ -10735,7 +10722,6 @@
 	$('.cals-header').on('click', function () {
 	  Food.sortCalories();
 	});
-	// $('.cals-header').on('click', Food.chooseSort(event))
 
 /***/ }),
 /* 5 */
