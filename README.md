@@ -10,7 +10,7 @@ View the back end GitHub repo [HERE](https://github.com/Benja-Ross/node-quantifi
 
 # How Does It Work?
 
-With an existing database of delicious foods to choose from on the home page, click the checkbox under "SELECT" and add the food to a meal of your choice.
+Explore an existing database of delicious foods to choose from on the home page. Click the checkbox under "SELECT" and add the food to a meal of your choice.
 
 ![foods table](https://github.com/rwilhel/bootstrap_tutorial/blob/master/QS-markdown-1.png)
 
