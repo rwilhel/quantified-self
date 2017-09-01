@@ -6,7 +6,7 @@ View the front end live [HERE](https://benja-ross.github.io/quantified-self/)!
 
 View the back end API documentation via Heroku [HERE](https://lit-basin-44778.herokuapp.com/)!
 
-View the back end GitHub repo [HERE](https://github.com/Benja-Ross/node-quantified-self-api!)
+View the back end GitHub repo [HERE](https://github.com/Benja-Ross/node-quantified-self-api)!
 
 # How Does It Work?
 
