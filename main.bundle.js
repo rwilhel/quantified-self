@@ -10703,7 +10703,6 @@
 	  return $.ajax({
 	    type: "POST",
 	    url: 'https://lit-basin-44778.herokuapp.com/api/v1/foods',
-
 	    data: { food: foodItem }
 	  }).done(function (data) {
 	    var newFood = new Food(data);
