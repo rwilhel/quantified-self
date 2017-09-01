@@ -28,7 +28,7 @@ Not enough foods to choose from? Click CREATE NEW FOODS to navigate to the food 
 
 ![food management page](https://github.com/rwilhel/bootstrap_tutorial/blob/master/QS-markdown-4.png)
 
-From here, you can create a new food to post to the database. Foods MUST have both a name and calorie amount to be added. You can also search for foods by name here as well and view foods sorted by calories.
+From here, you can create a new food to post to the database. Foods MUST have both a name and calorie amount to be added. You can also search for foods by name, remove foods and view foods sorted by calories.
 
 ## Install and Run Locally
 
