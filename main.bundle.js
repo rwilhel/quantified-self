@@ -10318,6 +10318,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);
+	var state;
 
 	function Food(food) {
 	  this.id = food.id;
@@ -10333,7 +10334,7 @@
 	//   return `<tr class="food-row">` +
 	//   `<td class="food-name" data-id="${this.id}">${this.name}</td>`+
 	//   `<td class="food-calories">${this.calories}</td>`+
-	//   `<td><input class="checkbox" type="checkbox" id="checkbox ${this.id}"></td></tr>` 
+	//   `<td><input class="checkbox" type="checkbox" id="checkbox ${this.id}"></td></tr>`
 
 	Food.prototype.index = function () {
 	  return `<td class="trash-can-space"><a><input type="image" src="public/trash-can.png" class="trash-can" id=${this.id} alt="a trash can"/></a></td></tr>`;
@@ -10442,6 +10443,26 @@
 	    }
 	  }
 	};
+
+	Food.sortCalories = function () {
+	  $('#foods-table tr').sort(function (a, b) {
+	    switch (order) {
+	      case 'asc':
+	        return Number($('td:nth-child(2)', a).text()) - Number($('td:nth-child(2)', b).text());
+	        break;
+	      case 'desc':
+	        return Number($('td:nth-child(2)', b).text()) - Number($('td:nth-child(2)', a).text());
+	        break;
+	      case 'original':
+	        return Number(b.id) - Number(a.id);
+	        break;
+	    }
+	  }).appendTo('#foods-table');
+	};
+
+	// Food.chooseSort = function() {
+	//   debugger
+	// }
 
 	module.exports = Food;
 
@@ -10698,7 +10719,7 @@
 
 	function filterFoods() {
 	  let filter = $('#filter-name').val().toLowerCase();
-	  let foods = $('.food-name');
+	  let foods = $('.diary-foods-table').find('.food-name');
 	  for (var i = 0; i < foods.length; i++) {
 	    let foodName = $(foods[i]).text();
 	    let matchedFilter = foodName.toLowerCase().indexOf(filter) > -1;
@@ -10724,9 +10745,13 @@
 	  var id = this.id;
 	  var calories = $(this).text();
 	  var foodObj = { calories: calories, id: id };
-
 	  Food.editFood(foodObj);
 	});
+
+	$('.cals-header').on('click', function () {
+	  Food.sortCalories();
+	});
+	// $('.cals-header').on('click', Food.chooseSort(event))
 
 /***/ }),
 /* 5 */
