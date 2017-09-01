@@ -10345,7 +10345,7 @@
 
 	Food.delete = function (foodID) {
 	  return $.ajax({
-	    url: `http://localhost:4000/api/v1/foods/` + foodID,
+	    url: `https://lit-basin-44778.herokuapp.com/api/v1/foods/` + foodID,
 	    type: 'DELETE',
 	    dataType: "json",
 	    error: function (error) {
@@ -10386,7 +10386,7 @@
 	Food.getAllFoods = function () {
 	  return $.ajax({
 	    type: "GET",
-	    url: 'http://localhost:4000/api/v1/foods',
+	    url: 'https://lit-basin-44778.herokuapp.com/api/v1/foods',
 	    dataType: "json"
 	  }).done(function (data) {
 	    return data;
@@ -10412,7 +10412,7 @@
 	Food.editFood = function (food) {
 	  return $.ajax({
 	    type: "PATCH",
-	    url: 'http://localhost:4000/api/v1/foods/' + food.id,
+	    url: 'https://lit-basin-44778.herokuapp.com/api/v1/foods/' + food.id,
 	    dataType: "json",
 	    data: { food: food },
 	    error: function (error) {
@@ -10537,7 +10537,7 @@
 	Meal.getAllMeals = function () {
 		return $.ajax({
 			type: "GET",
-			url: 'http://localhost:4000/api/v1/meals',
+			url: 'https://lit-basin-44778.herokuapp.com/api/v1/meals',
 			dataType: "json"
 		}).done(function (data) {
 			return data;
@@ -10569,7 +10569,7 @@
 		foods.forEach(function (food) {
 			$.ajax({
 				type: "POST",
-				url: `http://localhost:4000/api/v1/meals/${mealID}/foods/${food.id}`,
+				url: `https://lit-basin-44778.herokuapp.com/api/v1/meals/${mealID}/foods/${food.id}`,
 				dataType: "json"
 			}).done(function (data) {
 				return data;
@@ -10593,7 +10593,7 @@
 
 	Meal.deleteFood = function (foodId, mealId) {
 		return $.ajax({
-			url: `http://localhost:4000/api/v1/meals/${mealId}/foods/${foodId}`,
+			url: `https://lit-basin-44778.herokuapp.com/api/v1/meals/${mealId}/foods/${foodId}`,
 			type: 'DELETE',
 			dataType: "json"
 		}).done(function (data) {
@@ -10681,7 +10681,7 @@
 
 	  return $.ajax({
 	    type: "POST",
-	    url: 'http://localhost:4000/api/v1/foods',
+	    url: 'https://lit-basin-44778.herokuapp.com/api/v1/foods',
 	    data: { food: foodItem }
 	  }).done(function (data) {
 	    var newFood = new Food(data);
