@@ -38,6 +38,8 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "datatables.net": "^1.10.15",
+    "datatables.net-dt": "^1.10.15",
     "jsdom": "^11.2.0"
   }
 }
