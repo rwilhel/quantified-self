@@ -10335,12 +10335,6 @@
 	  return `<tr class="food-row">` + `<td class="food-name" data-id="${this.id}" id="${this.id}" contenteditable="true">${this.name}</td>` + `<td class="food-calories" id="${this.id}" contenteditable="true">${this.calories}</td>` + eval(`this.${page}()`);
 	};
 
-	// Food.prototype.toHTMLDiary = function(data) {
-	//   return `<tr class="food-row">` +
-	//   `<td class="food-name" data-id="${this.id}">${this.name}</td>`+
-	//   `<td class="food-calories">${this.calories}</td>`+
-	//   `<td><input class="checkbox" type="checkbox" id="checkbox ${this.id}"></td></tr>` 
-
 	Food.prototype.index = function () {
 	  return `<td class="trash-can-space"><a><input type="image" src="public/trash-can.png" class="trash-can" id=${this.id} alt="a trash can"/></a></td></tr>`;
 	};
@@ -10384,7 +10378,6 @@
 	      } else {
 	        return food.toHTML('diary');
 	      }
-	      // return food.toHTML();
 	    });
 	  });
 	};
@@ -10401,20 +10394,6 @@
 	  });
 	};
 
-	// Food.getAFood = function(food) {
-	//   return $.ajax({
-	//     type: "GET",
-	//     url: `https://shrouded-headland-61661.herokuapp.com/api/v1/foods/${food}`,
-	//     dataType:"json",
-	//   })
-	//   .done(function(data) {
-	//     return data;
-	//   })
-	//   .fail(function(error) {
-	//     alert('Unable to request foods')
-	//   })
-	// }
-
 	Food.editFood = function (food) {
 	  return $.ajax({
 	    type: "PATCH",
@@ -10426,7 +10405,6 @@
 	    }
 	  }).done(function (post) {
 	    return Food.updateMealsTables(post);
-	    // return post
 	  });
 	};
 
